@@ -20,7 +20,7 @@ public class DisruptProducer {
      * @param bb byteBuffer
      */
     public void pushData(ByteBuffer bb) {
-        // 获取ringbuffer 的下一个可用序列号，
+        // 获取ringBuffer的下一个可用序列号，然后从中取下一个可用的PCData并进行赋值
         long sequence = ringBuffer.next();
         try {
             DisruptorPCData event = ringBuffer.get(sequence);

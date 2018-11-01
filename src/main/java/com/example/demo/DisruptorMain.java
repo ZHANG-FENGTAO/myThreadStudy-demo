@@ -17,12 +17,16 @@ public class DisruptorMain {
     public static void main(String[] args) throws InterruptedException {
         DefaultThreadFactory threadFactory = new DefaultThreadFactory("disruptor-thread");
         DisruptorPCDataFactory factory = new DisruptorPCDataFactory();
-
+        // 这里的size必须是2的整数次方
         int buffSize = 1024;
+        // 创建disruptor对象
         Disruptor<DisruptorPCData> disruptor = new Disruptor<DisruptorPCData>(factory, buffSize,
                 threadFactory, ProducerType.MULTI, new BlockingWaitStrategy());
+        // 设置三个消费者实例，系统将为每一个消费者实例进行映射到一个线程中，这里将会有三个消费者线程
         disruptor.handleEventsWithWorkerPool(new DisruptConsumer(), new DisruptConsumer(), new DisruptConsumer());
+        // 启动disruptor
         disruptor.start();
+        // 创建ringBuffer 并构造生产者进行生产
         RingBuffer<DisruptorPCData> ringBuffer = disruptor.getRingBuffer();
         DisruptProducer producer = new DisruptProducer(ringBuffer);
         ByteBuffer buffer = ByteBuffer.allocate(8);
