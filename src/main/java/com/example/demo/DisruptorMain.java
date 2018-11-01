@@ -11,6 +11,20 @@ import java.nio.ByteBuffer;
 /**
  * @author zft
  * @date 2018/11/1.
+ * result:
+ * 12 :Consumer:--0
+ * add data 0
+ * 13 :Consumer:--1
+ * add data 1
+ * 14 :Consumer:--2
+ * add data 2
+ * 12 :Consumer:--3
+ * add data 3
+ * 13 :Consumer:--4
+ * add data 4
+ * 14 :Consumer:--5
+ * add data 5
+ * 12 :Consumer:--6
  */
 public class DisruptorMain {
     @SuppressWarnings("unchecked")
