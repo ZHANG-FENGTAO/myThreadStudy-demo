@@ -16,7 +16,7 @@ public class Producer implements Runnable {
     private static AtomicInteger count = new AtomicInteger();
     private static final int SLEEPTIME = 1000;
 
-    public Producer(BlockingQueue queue) {
+    public Producer(BlockingQueue<PCData> queue) {
         this.queue = queue;
     }
 

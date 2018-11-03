@@ -6,9 +6,9 @@ import com.lmax.disruptor.EventFactory;
  * @author zft
  * @date 2018/11/1.
  */
-public class DisruptorPCDataFactory implements EventFactory {
+public class DisruptorPCDataFactory implements EventFactory<DisruptorPCData> {
     @Override
-    public Object newInstance() {
+    public DisruptorPCData newInstance() {
         return new DisruptorPCData();
     }
 }
