@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.disruptor;
 
 import com.lmax.disruptor.BlockingWaitStrategy;
 import com.lmax.disruptor.RingBuffer;
